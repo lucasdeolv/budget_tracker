@@ -1,0 +1,11 @@
+<%= form_for @statement do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :value %>
+  <%= f.number_field :value %>
+  <%= f.label :category %>
+  <%= f.select :category, [ 'Cell', 'Work', 'Office', 'Home', 'Other' ], :prompt => 'Select One' %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <%= f.submit %>
+<% end %>
