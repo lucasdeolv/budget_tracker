@@ -3,8 +3,8 @@
   <%= f.text_field :description %>
   <%= f.label :value %>
   <%= f.number_field :value %>
-  <%= f.label :category %>
-  <%= f.select :category, [ 'Cell', 'Work', 'Office', 'Home', 'Other' ], :prompt => 'Select One' %>
+  <%= f.label :category_id %>
+  <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] }, :prompt => 'Select One' %>
   <%= f.label :date %>
   <%= f.date_field :date %>
   <%= f.submit %>

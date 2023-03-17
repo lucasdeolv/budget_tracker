@@ -1,2 +1,13 @@
-<h1>Statements#index</h1>
-<p>Find me in app/views/statements/index.html.erb</p>
+<h1>Statements</h1>
+<ul>
+  <% @statements.each do |statement| %>
+    <li><%= statement.description %></li>
+    <li><%= statement.value %></li>
+    <li><%= statement.category.name %></li>
+    <li><%= statement.date %></li>
+    <%= link_to "Edit", edit_statement_path(statement.id)  %>
+    <%= button_to "Delete", statement_path(statement.id), method: :delete %>
+  <% end %>
+  <li>Total: <%= @statements.total %></li>
+  <%= link_to "Add data", new_statement_path %>
+</ul>

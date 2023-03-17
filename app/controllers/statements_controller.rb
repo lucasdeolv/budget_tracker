@@ -1,7 +1,7 @@
 class StatementsController < ApplicationController
   before_action :statement_finder, only: %i[edit update destroy]
   def index
-    @statements = Statement.all
+    @statements = Statement.where(id: 4)
   end
 
   def new
@@ -9,7 +9,9 @@ class StatementsController < ApplicationController
   end
 
   def create
-    @statement = Statement.create(statement_params)
+    @statement = Statement.new(statement_params)
+    @statement.user_id = current_user.id
+    @statement.save
     redirect_to statements_path
   end
 
